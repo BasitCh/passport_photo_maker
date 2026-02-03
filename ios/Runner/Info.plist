@@ -49,6 +49,8 @@
 	<string>We need access to your photo library to select a photo.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>We need access to save the exported photo to your library.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>We need camera access to capture a profile photo.</string>
 	<key>GADApplicationIdentifier</key>
 	<string>ca-app-pub-3940256099942544~1458002511</string>
 </dict>

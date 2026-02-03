@@ -1,11 +1,20 @@
-import "package:flutter/material.dart";
-import "package:google_mobile_ads/google_mobile_ads.dart";
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 
-import "screens/home_screen.dart";
+import 'core/di/injection.dart';
+import 'features/editor/presentation/bloc/editor_bloc.dart';
+import 'features/home/presentation/screens/home_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  // Initialize AdMob
   await MobileAds.instance.initialize();
+
+  // Configure Dependency Injection
+  await configureDependencies();
+
   runApp(const PhotoMakerApp());
 }
 
@@ -14,22 +23,35 @@ class PhotoMakerApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = ThemeData(
-      useMaterial3: true,
-      fontFamily: "Roboto",
-      colorScheme: ColorScheme.fromSeed(
-        seedColor: const Color(0xFF111827),
-        surface: const Color(0xFFF9FAFB),
+    return MaterialApp(
+      title: 'Professional Photo Maker',
+      theme: _buildTheme(),
+      home: BlocProvider(
+        create: (_) => getIt<EditorBloc>(),
+        child: const HomeScreen(),
       ),
-      scaffoldBackgroundColor: const Color(0xFFF9FAFB),
+    );
+  }
+
+  ThemeData _buildTheme() {
+    return ThemeData(
+      useMaterial3: true,
+      brightness: Brightness.dark,
+      fontFamily: 'Roboto',
+      colorScheme: ColorScheme.fromSeed(
+        seedColor: const Color(0xFF6366F1),
+        brightness: Brightness.dark,
+        surface: const Color(0xFF0F172A),
+      ),
+      scaffoldBackgroundColor: const Color(0xFF0B1220),
       appBarTheme: const AppBarTheme(
-        backgroundColor: Colors.white,
-        foregroundColor: Color(0xFF111827),
+        backgroundColor: Color(0xFF0F172A),
+        foregroundColor: Colors.white,
         elevation: 0,
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
-          backgroundColor: const Color(0xFF111827),
+          backgroundColor: const Color(0xFF6366F1),
           foregroundColor: Colors.white,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(14),
@@ -40,8 +62,8 @@ class PhotoMakerApp extends StatelessWidget {
       ),
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
-          foregroundColor: const Color(0xFF111827),
-          side: const BorderSide(color: Color(0xFFCBD5F5)),
+          foregroundColor: Colors.white,
+          side: const BorderSide(color: Color(0xFF334155)),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(14),
           ),
@@ -49,23 +71,6 @@ class PhotoMakerApp extends StatelessWidget {
           textStyle: const TextStyle(fontWeight: FontWeight.w600),
         ),
       ),
-      chipTheme: const ChipThemeData(
-        selectedColor: Color(0xFF111827),
-        labelStyle: TextStyle(fontWeight: FontWeight.w600),
-        shape: StadiumBorder(),
-      ),
-      sliderTheme: SliderThemeData(
-        activeTrackColor: const Color(0xFF111827),
-        thumbColor: const Color(0xFF111827),
-        overlayColor: const Color(0x22000000),
-        inactiveTrackColor: const Color(0xFFE5E7EB),
-      ),
-    );
-
-    return MaterialApp(
-      title: "Professional Photo Maker",
-      theme: theme,
-      home: const HomeScreen(),
     );
   }
 }
