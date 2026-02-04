@@ -9,6 +9,7 @@ import '../../../editor/domain/entities/editor_settings.dart';
 import '../../../editor/domain/entities/mask_data.dart';
 import '../../../editor/domain/entities/processed_image.dart';
 import '../../../editor/domain/repositories/image_repository.dart';
+import '../../domain/entities/export_entry.dart';
 import '../../domain/repositories/storage_repository.dart';
 
 /// Use case for exporting and saving image
@@ -37,10 +38,29 @@ class ExportImageUseCase implements UseCase<File, ExportImageParams> {
         // Save to storage
         final extension =
             processedImage.format == ImageFormat.png ? 'png' : 'jpg';
-        return await storageRepository.saveImage(
+        final saveResult = await storageRepository.saveImage(
           bytes: processedImage.bytes,
           presetId: params.preset.id,
           extension: extension,
+        );
+        return saveResult.fold(
+          (failure) => Left(failure),
+          (file) async {
+            final sizeBytes = await file.length();
+            final historyResult = await storageRepository.getExportHistory();
+            final entries = historyResult.getOrElse(() => []);
+            final updated = [
+              ExportEntry(
+                path: file.path,
+                presetId: params.preset.id,
+                createdAt: DateTime.now(),
+                sizeBytes: sizeBytes,
+              ),
+              ...entries,
+            ];
+            await storageRepository.saveExportHistory(updated);
+            return Right(file);
+          },
         );
       },
     );

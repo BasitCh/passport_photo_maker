@@ -22,6 +22,7 @@ class EditorBloc extends Bloc<EditorEvent, EditorState> {
   final SegmentPersonUseCase segmentPersonUseCase;
   final GeneratePreviewUseCase generatePreviewUseCase;
   final ExportImageUseCase exportImageUseCase;
+  Timer? _previewDebounce;
 
   EditorBloc({
     required this.pickImageUseCase,
@@ -31,6 +32,7 @@ class EditorBloc extends Bloc<EditorEvent, EditorState> {
   }) : super(const EditorState.initial()) {
     on<LoadImage>(_onLoadImage);
     on<PickImage>(_onPickImage);
+    on<PickBackgroundImage>(_onPickBackgroundImage);
     on<SegmentPerson>(_onSegmentPerson);
     on<UpdateSettings>(_onUpdateSettings);
     on<UpdateBackground>(_onUpdateBackground);
@@ -56,7 +58,7 @@ class EditorBloc extends Bloc<EditorEvent, EditorState> {
         settings: EditorSettings.initial(),
       ));
 
-      // Automatically trigger segmentation
+      // Automatically trigger background removal
       add(const EditorEvent.segmentPerson());
     } catch (e) {
       emit(EditorState.error(
@@ -78,6 +80,53 @@ class EditorBloc extends Bloc<EditorEvent, EditorState> {
     result.fold(
       (failure) => emit(EditorState.error(failure: failure)),
       (imagePath) => add(EditorEvent.loadImage(imagePath)),
+    );
+  }
+
+  Future<void> _onPickBackgroundImage(
+    PickBackgroundImage event,
+    Emitter<EditorState> emit,
+  ) async {
+    final currentState = state;
+    if (currentState is! ImageLoaded && currentState is! PreviewReady) return;
+
+    final imagePath =
+        currentState is ImageLoaded ? currentState.imagePath : (currentState as PreviewReady).imagePath;
+    final imageBytes =
+        currentState is ImageLoaded ? currentState.imageBytes : (currentState as PreviewReady).imageBytes;
+    final settings =
+        currentState is ImageLoaded ? currentState.settings : (currentState as PreviewReady).settings;
+    final maskData =
+        currentState is ImageLoaded ? currentState.maskData : (currentState as PreviewReady).maskData;
+    final maskEdits =
+        currentState is ImageLoaded ? currentState.maskEdits : (currentState as PreviewReady).maskEdits;
+    final preview = currentState is PreviewReady ? currentState.preview : null;
+
+    final result = await pickImageUseCase(
+      const PickImageParams(fromCamera: false),
+    );
+
+    result.fold(
+      (failure) => emit(EditorState.error(
+        failure: failure,
+        imagePath: imagePath,
+        imageBytes: imageBytes,
+        settings: settings,
+        maskData: maskData,
+        maskEdits: maskEdits,
+        preview: preview,
+      )),
+      (imagePath) {
+        final updatedSettings = settings.copyWith(
+          background: BackgroundStyle.image(
+            id: 'bg_custom',
+            label: 'Custom Background',
+            pack: 'file',
+            assetPath: imagePath,
+          ),
+        );
+        add(EditorEvent.updateSettings(updatedSettings));
+      },
     );
   }
 
@@ -153,8 +202,7 @@ class EditorBloc extends Bloc<EditorEvent, EditorState> {
       ));
     }
 
-    // Regenerate preview
-    add(const EditorEvent.generatePreview());
+    _schedulePreview();
   }
 
   Future<void> _onUpdateBackground(
@@ -307,8 +355,56 @@ class EditorBloc extends Bloc<EditorEvent, EditorState> {
     ApplyBrushStroke event,
     Emitter<EditorState> emit,
   ) async {
-    // TODO: Implement brush stroke application
-    // This requires modifying the maskEdits
-    add(const EditorEvent.generatePreview());
+    final currentState = state;
+    if (currentState is! ImageLoaded && currentState is! PreviewReady) return;
+
+    final maskEdits = currentState is ImageLoaded
+        ? currentState.maskEdits
+        : (currentState as PreviewReady).maskEdits;
+    if (maskEdits == null) return;
+
+    final updated = _applyBrush(maskEdits, event);
+
+    if (currentState is ImageLoaded) {
+      emit(currentState.copyWith(maskEdits: updated));
+    } else if (currentState is PreviewReady) {
+      emit(currentState.copyWith(maskEdits: updated));
+    }
+
+    _schedulePreview();
+  }
+
+  MaskEdits _applyBrush(MaskEdits maskEdits, ApplyBrushStroke event) {
+    final updated = Uint8List.fromList(maskEdits.alphaMap);
+    final radius = (event.brushSize / 2).round().clamp(1, 120);
+    final radiusSquared = radius * radius;
+    final width = maskEdits.width;
+    final height = maskEdits.height;
+    final targetValue = event.eraseMode ? 0 : 255;
+
+    for (var dy = -radius; dy <= radius; dy++) {
+      for (var dx = -radius; dx <= radius; dx++) {
+        if (dx * dx + dy * dy > radiusSquared) continue;
+        final x = (event.x + dx).clamp(0, width - 1);
+        final y = (event.y + dy).clamp(0, height - 1);
+        updated[y * width + x] = targetValue;
+      }
+    }
+
+    return maskEdits.copyWith(alphaMap: updated);
+  }
+
+  void _schedulePreview() {
+    _previewDebounce?.cancel();
+    _previewDebounce = Timer(
+      const Duration(milliseconds: 180),
+      () => add(const EditorEvent.generatePreview()),
+    );
+  }
+
+  @override
+  Future<void> close() {
+    _previewDebounce?.cancel();
+    return super.close();
   }
 }

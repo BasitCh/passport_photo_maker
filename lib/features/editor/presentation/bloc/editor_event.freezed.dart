@@ -21,6 +21,7 @@ mixin _$EditorEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(String imagePath) loadImage,
     required TResult Function(bool fromCamera) pickImage,
+    required TResult Function() pickBackgroundImage,
     required TResult Function() segmentPerson,
     required TResult Function(EditorSettings settings) updateSettings,
     required TResult Function(BackgroundStyle background) updateBackground,
@@ -37,6 +38,7 @@ mixin _$EditorEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String imagePath)? loadImage,
     TResult? Function(bool fromCamera)? pickImage,
+    TResult? Function()? pickBackgroundImage,
     TResult? Function()? segmentPerson,
     TResult? Function(EditorSettings settings)? updateSettings,
     TResult? Function(BackgroundStyle background)? updateBackground,
@@ -52,6 +54,7 @@ mixin _$EditorEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String imagePath)? loadImage,
     TResult Function(bool fromCamera)? pickImage,
+    TResult Function()? pickBackgroundImage,
     TResult Function()? segmentPerson,
     TResult Function(EditorSettings settings)? updateSettings,
     TResult Function(BackgroundStyle background)? updateBackground,
@@ -68,6 +71,7 @@ mixin _$EditorEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(LoadImage value) loadImage,
     required TResult Function(PickImage value) pickImage,
+    required TResult Function(PickBackgroundImage value) pickBackgroundImage,
     required TResult Function(SegmentPerson value) segmentPerson,
     required TResult Function(UpdateSettings value) updateSettings,
     required TResult Function(UpdateBackground value) updateBackground,
@@ -82,6 +86,7 @@ mixin _$EditorEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LoadImage value)? loadImage,
     TResult? Function(PickImage value)? pickImage,
+    TResult? Function(PickBackgroundImage value)? pickBackgroundImage,
     TResult? Function(SegmentPerson value)? segmentPerson,
     TResult? Function(UpdateSettings value)? updateSettings,
     TResult? Function(UpdateBackground value)? updateBackground,
@@ -96,6 +101,7 @@ mixin _$EditorEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LoadImage value)? loadImage,
     TResult Function(PickImage value)? pickImage,
+    TResult Function(PickBackgroundImage value)? pickBackgroundImage,
     TResult Function(SegmentPerson value)? segmentPerson,
     TResult Function(UpdateSettings value)? updateSettings,
     TResult Function(UpdateBackground value)? updateBackground,
@@ -204,6 +210,7 @@ class _$LoadImageImpl implements LoadImage {
   TResult when<TResult extends Object?>({
     required TResult Function(String imagePath) loadImage,
     required TResult Function(bool fromCamera) pickImage,
+    required TResult Function() pickBackgroundImage,
     required TResult Function() segmentPerson,
     required TResult Function(EditorSettings settings) updateSettings,
     required TResult Function(BackgroundStyle background) updateBackground,
@@ -224,6 +231,7 @@ class _$LoadImageImpl implements LoadImage {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String imagePath)? loadImage,
     TResult? Function(bool fromCamera)? pickImage,
+    TResult? Function()? pickBackgroundImage,
     TResult? Function()? segmentPerson,
     TResult? Function(EditorSettings settings)? updateSettings,
     TResult? Function(BackgroundStyle background)? updateBackground,
@@ -243,6 +251,7 @@ class _$LoadImageImpl implements LoadImage {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String imagePath)? loadImage,
     TResult Function(bool fromCamera)? pickImage,
+    TResult Function()? pickBackgroundImage,
     TResult Function()? segmentPerson,
     TResult Function(EditorSettings settings)? updateSettings,
     TResult Function(BackgroundStyle background)? updateBackground,
@@ -266,6 +275,7 @@ class _$LoadImageImpl implements LoadImage {
   TResult map<TResult extends Object?>({
     required TResult Function(LoadImage value) loadImage,
     required TResult Function(PickImage value) pickImage,
+    required TResult Function(PickBackgroundImage value) pickBackgroundImage,
     required TResult Function(SegmentPerson value) segmentPerson,
     required TResult Function(UpdateSettings value) updateSettings,
     required TResult Function(UpdateBackground value) updateBackground,
@@ -284,6 +294,7 @@ class _$LoadImageImpl implements LoadImage {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LoadImage value)? loadImage,
     TResult? Function(PickImage value)? pickImage,
+    TResult? Function(PickBackgroundImage value)? pickBackgroundImage,
     TResult? Function(SegmentPerson value)? segmentPerson,
     TResult? Function(UpdateSettings value)? updateSettings,
     TResult? Function(UpdateBackground value)? updateBackground,
@@ -302,6 +313,7 @@ class _$LoadImageImpl implements LoadImage {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LoadImage value)? loadImage,
     TResult Function(PickImage value)? pickImage,
+    TResult Function(PickBackgroundImage value)? pickBackgroundImage,
     TResult Function(SegmentPerson value)? segmentPerson,
     TResult Function(UpdateSettings value)? updateSettings,
     TResult Function(UpdateBackground value)? updateBackground,
@@ -406,6 +418,7 @@ class _$PickImageImpl implements PickImage {
   TResult when<TResult extends Object?>({
     required TResult Function(String imagePath) loadImage,
     required TResult Function(bool fromCamera) pickImage,
+    required TResult Function() pickBackgroundImage,
     required TResult Function() segmentPerson,
     required TResult Function(EditorSettings settings) updateSettings,
     required TResult Function(BackgroundStyle background) updateBackground,
@@ -426,6 +439,7 @@ class _$PickImageImpl implements PickImage {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String imagePath)? loadImage,
     TResult? Function(bool fromCamera)? pickImage,
+    TResult? Function()? pickBackgroundImage,
     TResult? Function()? segmentPerson,
     TResult? Function(EditorSettings settings)? updateSettings,
     TResult? Function(BackgroundStyle background)? updateBackground,
@@ -445,6 +459,7 @@ class _$PickImageImpl implements PickImage {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String imagePath)? loadImage,
     TResult Function(bool fromCamera)? pickImage,
+    TResult Function()? pickBackgroundImage,
     TResult Function()? segmentPerson,
     TResult Function(EditorSettings settings)? updateSettings,
     TResult Function(BackgroundStyle background)? updateBackground,
@@ -468,6 +483,7 @@ class _$PickImageImpl implements PickImage {
   TResult map<TResult extends Object?>({
     required TResult Function(LoadImage value) loadImage,
     required TResult Function(PickImage value) pickImage,
+    required TResult Function(PickBackgroundImage value) pickBackgroundImage,
     required TResult Function(SegmentPerson value) segmentPerson,
     required TResult Function(UpdateSettings value) updateSettings,
     required TResult Function(UpdateBackground value) updateBackground,
@@ -486,6 +502,7 @@ class _$PickImageImpl implements PickImage {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LoadImage value)? loadImage,
     TResult? Function(PickImage value)? pickImage,
+    TResult? Function(PickBackgroundImage value)? pickBackgroundImage,
     TResult? Function(SegmentPerson value)? segmentPerson,
     TResult? Function(UpdateSettings value)? updateSettings,
     TResult? Function(UpdateBackground value)? updateBackground,
@@ -504,6 +521,7 @@ class _$PickImageImpl implements PickImage {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LoadImage value)? loadImage,
     TResult Function(PickImage value)? pickImage,
+    TResult Function(PickBackgroundImage value)? pickBackgroundImage,
     TResult Function(SegmentPerson value)? segmentPerson,
     TResult Function(UpdateSettings value)? updateSettings,
     TResult Function(UpdateBackground value)? updateBackground,
@@ -532,6 +550,178 @@ abstract class PickImage implements EditorEvent {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$PickImageImplCopyWith<_$PickImageImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$PickBackgroundImageImplCopyWith<$Res> {
+  factory _$$PickBackgroundImageImplCopyWith(
+    _$PickBackgroundImageImpl value,
+    $Res Function(_$PickBackgroundImageImpl) then,
+  ) = __$$PickBackgroundImageImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$PickBackgroundImageImplCopyWithImpl<$Res>
+    extends _$EditorEventCopyWithImpl<$Res, _$PickBackgroundImageImpl>
+    implements _$$PickBackgroundImageImplCopyWith<$Res> {
+  __$$PickBackgroundImageImplCopyWithImpl(
+    _$PickBackgroundImageImpl _value,
+    $Res Function(_$PickBackgroundImageImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of EditorEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$PickBackgroundImageImpl implements PickBackgroundImage {
+  const _$PickBackgroundImageImpl();
+
+  @override
+  String toString() {
+    return 'EditorEvent.pickBackgroundImage()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$PickBackgroundImageImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String imagePath) loadImage,
+    required TResult Function(bool fromCamera) pickImage,
+    required TResult Function() pickBackgroundImage,
+    required TResult Function() segmentPerson,
+    required TResult Function(EditorSettings settings) updateSettings,
+    required TResult Function(BackgroundStyle background) updateBackground,
+    required TResult Function(FrameShape frameShape) updateFrameShape,
+    required TResult Function() generatePreview,
+    required TResult Function(ExportPreset preset, ExportQuality quality)
+    exportImage,
+    required TResult Function(int x, int y, int brushSize, bool eraseMode)
+    applyBrushStroke,
+    required TResult Function() undoMaskEdit,
+    required TResult Function() redoMaskEdit,
+  }) {
+    return pickBackgroundImage();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String imagePath)? loadImage,
+    TResult? Function(bool fromCamera)? pickImage,
+    TResult? Function()? pickBackgroundImage,
+    TResult? Function()? segmentPerson,
+    TResult? Function(EditorSettings settings)? updateSettings,
+    TResult? Function(BackgroundStyle background)? updateBackground,
+    TResult? Function(FrameShape frameShape)? updateFrameShape,
+    TResult? Function()? generatePreview,
+    TResult? Function(ExportPreset preset, ExportQuality quality)? exportImage,
+    TResult? Function(int x, int y, int brushSize, bool eraseMode)?
+    applyBrushStroke,
+    TResult? Function()? undoMaskEdit,
+    TResult? Function()? redoMaskEdit,
+  }) {
+    return pickBackgroundImage?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String imagePath)? loadImage,
+    TResult Function(bool fromCamera)? pickImage,
+    TResult Function()? pickBackgroundImage,
+    TResult Function()? segmentPerson,
+    TResult Function(EditorSettings settings)? updateSettings,
+    TResult Function(BackgroundStyle background)? updateBackground,
+    TResult Function(FrameShape frameShape)? updateFrameShape,
+    TResult Function()? generatePreview,
+    TResult Function(ExportPreset preset, ExportQuality quality)? exportImage,
+    TResult Function(int x, int y, int brushSize, bool eraseMode)?
+    applyBrushStroke,
+    TResult Function()? undoMaskEdit,
+    TResult Function()? redoMaskEdit,
+    required TResult orElse(),
+  }) {
+    if (pickBackgroundImage != null) {
+      return pickBackgroundImage();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(LoadImage value) loadImage,
+    required TResult Function(PickImage value) pickImage,
+    required TResult Function(PickBackgroundImage value) pickBackgroundImage,
+    required TResult Function(SegmentPerson value) segmentPerson,
+    required TResult Function(UpdateSettings value) updateSettings,
+    required TResult Function(UpdateBackground value) updateBackground,
+    required TResult Function(UpdateFrameShape value) updateFrameShape,
+    required TResult Function(GeneratePreview value) generatePreview,
+    required TResult Function(ExportImage value) exportImage,
+    required TResult Function(ApplyBrushStroke value) applyBrushStroke,
+    required TResult Function(UndoMaskEdit value) undoMaskEdit,
+    required TResult Function(RedoMaskEdit value) redoMaskEdit,
+  }) {
+    return pickBackgroundImage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(LoadImage value)? loadImage,
+    TResult? Function(PickImage value)? pickImage,
+    TResult? Function(PickBackgroundImage value)? pickBackgroundImage,
+    TResult? Function(SegmentPerson value)? segmentPerson,
+    TResult? Function(UpdateSettings value)? updateSettings,
+    TResult? Function(UpdateBackground value)? updateBackground,
+    TResult? Function(UpdateFrameShape value)? updateFrameShape,
+    TResult? Function(GeneratePreview value)? generatePreview,
+    TResult? Function(ExportImage value)? exportImage,
+    TResult? Function(ApplyBrushStroke value)? applyBrushStroke,
+    TResult? Function(UndoMaskEdit value)? undoMaskEdit,
+    TResult? Function(RedoMaskEdit value)? redoMaskEdit,
+  }) {
+    return pickBackgroundImage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(LoadImage value)? loadImage,
+    TResult Function(PickImage value)? pickImage,
+    TResult Function(PickBackgroundImage value)? pickBackgroundImage,
+    TResult Function(SegmentPerson value)? segmentPerson,
+    TResult Function(UpdateSettings value)? updateSettings,
+    TResult Function(UpdateBackground value)? updateBackground,
+    TResult Function(UpdateFrameShape value)? updateFrameShape,
+    TResult Function(GeneratePreview value)? generatePreview,
+    TResult Function(ExportImage value)? exportImage,
+    TResult Function(ApplyBrushStroke value)? applyBrushStroke,
+    TResult Function(UndoMaskEdit value)? undoMaskEdit,
+    TResult Function(RedoMaskEdit value)? redoMaskEdit,
+    required TResult orElse(),
+  }) {
+    if (pickBackgroundImage != null) {
+      return pickBackgroundImage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class PickBackgroundImage implements EditorEvent {
+  const factory PickBackgroundImage() = _$PickBackgroundImageImpl;
 }
 
 /// @nodoc
@@ -579,6 +769,7 @@ class _$SegmentPersonImpl implements SegmentPerson {
   TResult when<TResult extends Object?>({
     required TResult Function(String imagePath) loadImage,
     required TResult Function(bool fromCamera) pickImage,
+    required TResult Function() pickBackgroundImage,
     required TResult Function() segmentPerson,
     required TResult Function(EditorSettings settings) updateSettings,
     required TResult Function(BackgroundStyle background) updateBackground,
@@ -599,6 +790,7 @@ class _$SegmentPersonImpl implements SegmentPerson {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String imagePath)? loadImage,
     TResult? Function(bool fromCamera)? pickImage,
+    TResult? Function()? pickBackgroundImage,
     TResult? Function()? segmentPerson,
     TResult? Function(EditorSettings settings)? updateSettings,
     TResult? Function(BackgroundStyle background)? updateBackground,
@@ -618,6 +810,7 @@ class _$SegmentPersonImpl implements SegmentPerson {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String imagePath)? loadImage,
     TResult Function(bool fromCamera)? pickImage,
+    TResult Function()? pickBackgroundImage,
     TResult Function()? segmentPerson,
     TResult Function(EditorSettings settings)? updateSettings,
     TResult Function(BackgroundStyle background)? updateBackground,
@@ -641,6 +834,7 @@ class _$SegmentPersonImpl implements SegmentPerson {
   TResult map<TResult extends Object?>({
     required TResult Function(LoadImage value) loadImage,
     required TResult Function(PickImage value) pickImage,
+    required TResult Function(PickBackgroundImage value) pickBackgroundImage,
     required TResult Function(SegmentPerson value) segmentPerson,
     required TResult Function(UpdateSettings value) updateSettings,
     required TResult Function(UpdateBackground value) updateBackground,
@@ -659,6 +853,7 @@ class _$SegmentPersonImpl implements SegmentPerson {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LoadImage value)? loadImage,
     TResult? Function(PickImage value)? pickImage,
+    TResult? Function(PickBackgroundImage value)? pickBackgroundImage,
     TResult? Function(SegmentPerson value)? segmentPerson,
     TResult? Function(UpdateSettings value)? updateSettings,
     TResult? Function(UpdateBackground value)? updateBackground,
@@ -677,6 +872,7 @@ class _$SegmentPersonImpl implements SegmentPerson {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LoadImage value)? loadImage,
     TResult Function(PickImage value)? pickImage,
+    TResult Function(PickBackgroundImage value)? pickBackgroundImage,
     TResult Function(SegmentPerson value)? segmentPerson,
     TResult Function(UpdateSettings value)? updateSettings,
     TResult Function(UpdateBackground value)? updateBackground,
@@ -787,6 +983,7 @@ class _$UpdateSettingsImpl implements UpdateSettings {
   TResult when<TResult extends Object?>({
     required TResult Function(String imagePath) loadImage,
     required TResult Function(bool fromCamera) pickImage,
+    required TResult Function() pickBackgroundImage,
     required TResult Function() segmentPerson,
     required TResult Function(EditorSettings settings) updateSettings,
     required TResult Function(BackgroundStyle background) updateBackground,
@@ -807,6 +1004,7 @@ class _$UpdateSettingsImpl implements UpdateSettings {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String imagePath)? loadImage,
     TResult? Function(bool fromCamera)? pickImage,
+    TResult? Function()? pickBackgroundImage,
     TResult? Function()? segmentPerson,
     TResult? Function(EditorSettings settings)? updateSettings,
     TResult? Function(BackgroundStyle background)? updateBackground,
@@ -826,6 +1024,7 @@ class _$UpdateSettingsImpl implements UpdateSettings {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String imagePath)? loadImage,
     TResult Function(bool fromCamera)? pickImage,
+    TResult Function()? pickBackgroundImage,
     TResult Function()? segmentPerson,
     TResult Function(EditorSettings settings)? updateSettings,
     TResult Function(BackgroundStyle background)? updateBackground,
@@ -849,6 +1048,7 @@ class _$UpdateSettingsImpl implements UpdateSettings {
   TResult map<TResult extends Object?>({
     required TResult Function(LoadImage value) loadImage,
     required TResult Function(PickImage value) pickImage,
+    required TResult Function(PickBackgroundImage value) pickBackgroundImage,
     required TResult Function(SegmentPerson value) segmentPerson,
     required TResult Function(UpdateSettings value) updateSettings,
     required TResult Function(UpdateBackground value) updateBackground,
@@ -867,6 +1067,7 @@ class _$UpdateSettingsImpl implements UpdateSettings {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LoadImage value)? loadImage,
     TResult? Function(PickImage value)? pickImage,
+    TResult? Function(PickBackgroundImage value)? pickBackgroundImage,
     TResult? Function(SegmentPerson value)? segmentPerson,
     TResult? Function(UpdateSettings value)? updateSettings,
     TResult? Function(UpdateBackground value)? updateBackground,
@@ -885,6 +1086,7 @@ class _$UpdateSettingsImpl implements UpdateSettings {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LoadImage value)? loadImage,
     TResult Function(PickImage value)? pickImage,
+    TResult Function(PickBackgroundImage value)? pickBackgroundImage,
     TResult Function(SegmentPerson value)? segmentPerson,
     TResult Function(UpdateSettings value)? updateSettings,
     TResult Function(UpdateBackground value)? updateBackground,
@@ -1004,6 +1206,7 @@ class _$UpdateBackgroundImpl implements UpdateBackground {
   TResult when<TResult extends Object?>({
     required TResult Function(String imagePath) loadImage,
     required TResult Function(bool fromCamera) pickImage,
+    required TResult Function() pickBackgroundImage,
     required TResult Function() segmentPerson,
     required TResult Function(EditorSettings settings) updateSettings,
     required TResult Function(BackgroundStyle background) updateBackground,
@@ -1024,6 +1227,7 @@ class _$UpdateBackgroundImpl implements UpdateBackground {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String imagePath)? loadImage,
     TResult? Function(bool fromCamera)? pickImage,
+    TResult? Function()? pickBackgroundImage,
     TResult? Function()? segmentPerson,
     TResult? Function(EditorSettings settings)? updateSettings,
     TResult? Function(BackgroundStyle background)? updateBackground,
@@ -1043,6 +1247,7 @@ class _$UpdateBackgroundImpl implements UpdateBackground {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String imagePath)? loadImage,
     TResult Function(bool fromCamera)? pickImage,
+    TResult Function()? pickBackgroundImage,
     TResult Function()? segmentPerson,
     TResult Function(EditorSettings settings)? updateSettings,
     TResult Function(BackgroundStyle background)? updateBackground,
@@ -1066,6 +1271,7 @@ class _$UpdateBackgroundImpl implements UpdateBackground {
   TResult map<TResult extends Object?>({
     required TResult Function(LoadImage value) loadImage,
     required TResult Function(PickImage value) pickImage,
+    required TResult Function(PickBackgroundImage value) pickBackgroundImage,
     required TResult Function(SegmentPerson value) segmentPerson,
     required TResult Function(UpdateSettings value) updateSettings,
     required TResult Function(UpdateBackground value) updateBackground,
@@ -1084,6 +1290,7 @@ class _$UpdateBackgroundImpl implements UpdateBackground {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LoadImage value)? loadImage,
     TResult? Function(PickImage value)? pickImage,
+    TResult? Function(PickBackgroundImage value)? pickBackgroundImage,
     TResult? Function(SegmentPerson value)? segmentPerson,
     TResult? Function(UpdateSettings value)? updateSettings,
     TResult? Function(UpdateBackground value)? updateBackground,
@@ -1102,6 +1309,7 @@ class _$UpdateBackgroundImpl implements UpdateBackground {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LoadImage value)? loadImage,
     TResult Function(PickImage value)? pickImage,
+    TResult Function(PickBackgroundImage value)? pickBackgroundImage,
     TResult Function(SegmentPerson value)? segmentPerson,
     TResult Function(UpdateSettings value)? updateSettings,
     TResult Function(UpdateBackground value)? updateBackground,
@@ -1209,6 +1417,7 @@ class _$UpdateFrameShapeImpl implements UpdateFrameShape {
   TResult when<TResult extends Object?>({
     required TResult Function(String imagePath) loadImage,
     required TResult Function(bool fromCamera) pickImage,
+    required TResult Function() pickBackgroundImage,
     required TResult Function() segmentPerson,
     required TResult Function(EditorSettings settings) updateSettings,
     required TResult Function(BackgroundStyle background) updateBackground,
@@ -1229,6 +1438,7 @@ class _$UpdateFrameShapeImpl implements UpdateFrameShape {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String imagePath)? loadImage,
     TResult? Function(bool fromCamera)? pickImage,
+    TResult? Function()? pickBackgroundImage,
     TResult? Function()? segmentPerson,
     TResult? Function(EditorSettings settings)? updateSettings,
     TResult? Function(BackgroundStyle background)? updateBackground,
@@ -1248,6 +1458,7 @@ class _$UpdateFrameShapeImpl implements UpdateFrameShape {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String imagePath)? loadImage,
     TResult Function(bool fromCamera)? pickImage,
+    TResult Function()? pickBackgroundImage,
     TResult Function()? segmentPerson,
     TResult Function(EditorSettings settings)? updateSettings,
     TResult Function(BackgroundStyle background)? updateBackground,
@@ -1271,6 +1482,7 @@ class _$UpdateFrameShapeImpl implements UpdateFrameShape {
   TResult map<TResult extends Object?>({
     required TResult Function(LoadImage value) loadImage,
     required TResult Function(PickImage value) pickImage,
+    required TResult Function(PickBackgroundImage value) pickBackgroundImage,
     required TResult Function(SegmentPerson value) segmentPerson,
     required TResult Function(UpdateSettings value) updateSettings,
     required TResult Function(UpdateBackground value) updateBackground,
@@ -1289,6 +1501,7 @@ class _$UpdateFrameShapeImpl implements UpdateFrameShape {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LoadImage value)? loadImage,
     TResult? Function(PickImage value)? pickImage,
+    TResult? Function(PickBackgroundImage value)? pickBackgroundImage,
     TResult? Function(SegmentPerson value)? segmentPerson,
     TResult? Function(UpdateSettings value)? updateSettings,
     TResult? Function(UpdateBackground value)? updateBackground,
@@ -1307,6 +1520,7 @@ class _$UpdateFrameShapeImpl implements UpdateFrameShape {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LoadImage value)? loadImage,
     TResult Function(PickImage value)? pickImage,
+    TResult Function(PickBackgroundImage value)? pickBackgroundImage,
     TResult Function(SegmentPerson value)? segmentPerson,
     TResult Function(UpdateSettings value)? updateSettings,
     TResult Function(UpdateBackground value)? updateBackground,
@@ -1383,6 +1597,7 @@ class _$GeneratePreviewImpl implements GeneratePreview {
   TResult when<TResult extends Object?>({
     required TResult Function(String imagePath) loadImage,
     required TResult Function(bool fromCamera) pickImage,
+    required TResult Function() pickBackgroundImage,
     required TResult Function() segmentPerson,
     required TResult Function(EditorSettings settings) updateSettings,
     required TResult Function(BackgroundStyle background) updateBackground,
@@ -1403,6 +1618,7 @@ class _$GeneratePreviewImpl implements GeneratePreview {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String imagePath)? loadImage,
     TResult? Function(bool fromCamera)? pickImage,
+    TResult? Function()? pickBackgroundImage,
     TResult? Function()? segmentPerson,
     TResult? Function(EditorSettings settings)? updateSettings,
     TResult? Function(BackgroundStyle background)? updateBackground,
@@ -1422,6 +1638,7 @@ class _$GeneratePreviewImpl implements GeneratePreview {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String imagePath)? loadImage,
     TResult Function(bool fromCamera)? pickImage,
+    TResult Function()? pickBackgroundImage,
     TResult Function()? segmentPerson,
     TResult Function(EditorSettings settings)? updateSettings,
     TResult Function(BackgroundStyle background)? updateBackground,
@@ -1445,6 +1662,7 @@ class _$GeneratePreviewImpl implements GeneratePreview {
   TResult map<TResult extends Object?>({
     required TResult Function(LoadImage value) loadImage,
     required TResult Function(PickImage value) pickImage,
+    required TResult Function(PickBackgroundImage value) pickBackgroundImage,
     required TResult Function(SegmentPerson value) segmentPerson,
     required TResult Function(UpdateSettings value) updateSettings,
     required TResult Function(UpdateBackground value) updateBackground,
@@ -1463,6 +1681,7 @@ class _$GeneratePreviewImpl implements GeneratePreview {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LoadImage value)? loadImage,
     TResult? Function(PickImage value)? pickImage,
+    TResult? Function(PickBackgroundImage value)? pickBackgroundImage,
     TResult? Function(SegmentPerson value)? segmentPerson,
     TResult? Function(UpdateSettings value)? updateSettings,
     TResult? Function(UpdateBackground value)? updateBackground,
@@ -1481,6 +1700,7 @@ class _$GeneratePreviewImpl implements GeneratePreview {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LoadImage value)? loadImage,
     TResult Function(PickImage value)? pickImage,
+    TResult Function(PickBackgroundImage value)? pickBackgroundImage,
     TResult Function(SegmentPerson value)? segmentPerson,
     TResult Function(UpdateSettings value)? updateSettings,
     TResult Function(UpdateBackground value)? updateBackground,
@@ -1582,6 +1802,7 @@ class _$ExportImageImpl implements ExportImage {
   TResult when<TResult extends Object?>({
     required TResult Function(String imagePath) loadImage,
     required TResult Function(bool fromCamera) pickImage,
+    required TResult Function() pickBackgroundImage,
     required TResult Function() segmentPerson,
     required TResult Function(EditorSettings settings) updateSettings,
     required TResult Function(BackgroundStyle background) updateBackground,
@@ -1602,6 +1823,7 @@ class _$ExportImageImpl implements ExportImage {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String imagePath)? loadImage,
     TResult? Function(bool fromCamera)? pickImage,
+    TResult? Function()? pickBackgroundImage,
     TResult? Function()? segmentPerson,
     TResult? Function(EditorSettings settings)? updateSettings,
     TResult? Function(BackgroundStyle background)? updateBackground,
@@ -1621,6 +1843,7 @@ class _$ExportImageImpl implements ExportImage {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String imagePath)? loadImage,
     TResult Function(bool fromCamera)? pickImage,
+    TResult Function()? pickBackgroundImage,
     TResult Function()? segmentPerson,
     TResult Function(EditorSettings settings)? updateSettings,
     TResult Function(BackgroundStyle background)? updateBackground,
@@ -1644,6 +1867,7 @@ class _$ExportImageImpl implements ExportImage {
   TResult map<TResult extends Object?>({
     required TResult Function(LoadImage value) loadImage,
     required TResult Function(PickImage value) pickImage,
+    required TResult Function(PickBackgroundImage value) pickBackgroundImage,
     required TResult Function(SegmentPerson value) segmentPerson,
     required TResult Function(UpdateSettings value) updateSettings,
     required TResult Function(UpdateBackground value) updateBackground,
@@ -1662,6 +1886,7 @@ class _$ExportImageImpl implements ExportImage {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LoadImage value)? loadImage,
     TResult? Function(PickImage value)? pickImage,
+    TResult? Function(PickBackgroundImage value)? pickBackgroundImage,
     TResult? Function(SegmentPerson value)? segmentPerson,
     TResult? Function(UpdateSettings value)? updateSettings,
     TResult? Function(UpdateBackground value)? updateBackground,
@@ -1680,6 +1905,7 @@ class _$ExportImageImpl implements ExportImage {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LoadImage value)? loadImage,
     TResult Function(PickImage value)? pickImage,
+    TResult Function(PickBackgroundImage value)? pickBackgroundImage,
     TResult Function(SegmentPerson value)? segmentPerson,
     TResult Function(UpdateSettings value)? updateSettings,
     TResult Function(UpdateBackground value)? updateBackground,
@@ -1822,6 +2048,7 @@ class _$ApplyBrushStrokeImpl implements ApplyBrushStroke {
   TResult when<TResult extends Object?>({
     required TResult Function(String imagePath) loadImage,
     required TResult Function(bool fromCamera) pickImage,
+    required TResult Function() pickBackgroundImage,
     required TResult Function() segmentPerson,
     required TResult Function(EditorSettings settings) updateSettings,
     required TResult Function(BackgroundStyle background) updateBackground,
@@ -1842,6 +2069,7 @@ class _$ApplyBrushStrokeImpl implements ApplyBrushStroke {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String imagePath)? loadImage,
     TResult? Function(bool fromCamera)? pickImage,
+    TResult? Function()? pickBackgroundImage,
     TResult? Function()? segmentPerson,
     TResult? Function(EditorSettings settings)? updateSettings,
     TResult? Function(BackgroundStyle background)? updateBackground,
@@ -1861,6 +2089,7 @@ class _$ApplyBrushStrokeImpl implements ApplyBrushStroke {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String imagePath)? loadImage,
     TResult Function(bool fromCamera)? pickImage,
+    TResult Function()? pickBackgroundImage,
     TResult Function()? segmentPerson,
     TResult Function(EditorSettings settings)? updateSettings,
     TResult Function(BackgroundStyle background)? updateBackground,
@@ -1884,6 +2113,7 @@ class _$ApplyBrushStrokeImpl implements ApplyBrushStroke {
   TResult map<TResult extends Object?>({
     required TResult Function(LoadImage value) loadImage,
     required TResult Function(PickImage value) pickImage,
+    required TResult Function(PickBackgroundImage value) pickBackgroundImage,
     required TResult Function(SegmentPerson value) segmentPerson,
     required TResult Function(UpdateSettings value) updateSettings,
     required TResult Function(UpdateBackground value) updateBackground,
@@ -1902,6 +2132,7 @@ class _$ApplyBrushStrokeImpl implements ApplyBrushStroke {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LoadImage value)? loadImage,
     TResult? Function(PickImage value)? pickImage,
+    TResult? Function(PickBackgroundImage value)? pickBackgroundImage,
     TResult? Function(SegmentPerson value)? segmentPerson,
     TResult? Function(UpdateSettings value)? updateSettings,
     TResult? Function(UpdateBackground value)? updateBackground,
@@ -1920,6 +2151,7 @@ class _$ApplyBrushStrokeImpl implements ApplyBrushStroke {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LoadImage value)? loadImage,
     TResult Function(PickImage value)? pickImage,
+    TResult Function(PickBackgroundImage value)? pickBackgroundImage,
     TResult Function(SegmentPerson value)? segmentPerson,
     TResult Function(UpdateSettings value)? updateSettings,
     TResult Function(UpdateBackground value)? updateBackground,
@@ -2003,6 +2235,7 @@ class _$UndoMaskEditImpl implements UndoMaskEdit {
   TResult when<TResult extends Object?>({
     required TResult Function(String imagePath) loadImage,
     required TResult Function(bool fromCamera) pickImage,
+    required TResult Function() pickBackgroundImage,
     required TResult Function() segmentPerson,
     required TResult Function(EditorSettings settings) updateSettings,
     required TResult Function(BackgroundStyle background) updateBackground,
@@ -2023,6 +2256,7 @@ class _$UndoMaskEditImpl implements UndoMaskEdit {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String imagePath)? loadImage,
     TResult? Function(bool fromCamera)? pickImage,
+    TResult? Function()? pickBackgroundImage,
     TResult? Function()? segmentPerson,
     TResult? Function(EditorSettings settings)? updateSettings,
     TResult? Function(BackgroundStyle background)? updateBackground,
@@ -2042,6 +2276,7 @@ class _$UndoMaskEditImpl implements UndoMaskEdit {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String imagePath)? loadImage,
     TResult Function(bool fromCamera)? pickImage,
+    TResult Function()? pickBackgroundImage,
     TResult Function()? segmentPerson,
     TResult Function(EditorSettings settings)? updateSettings,
     TResult Function(BackgroundStyle background)? updateBackground,
@@ -2065,6 +2300,7 @@ class _$UndoMaskEditImpl implements UndoMaskEdit {
   TResult map<TResult extends Object?>({
     required TResult Function(LoadImage value) loadImage,
     required TResult Function(PickImage value) pickImage,
+    required TResult Function(PickBackgroundImage value) pickBackgroundImage,
     required TResult Function(SegmentPerson value) segmentPerson,
     required TResult Function(UpdateSettings value) updateSettings,
     required TResult Function(UpdateBackground value) updateBackground,
@@ -2083,6 +2319,7 @@ class _$UndoMaskEditImpl implements UndoMaskEdit {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LoadImage value)? loadImage,
     TResult? Function(PickImage value)? pickImage,
+    TResult? Function(PickBackgroundImage value)? pickBackgroundImage,
     TResult? Function(SegmentPerson value)? segmentPerson,
     TResult? Function(UpdateSettings value)? updateSettings,
     TResult? Function(UpdateBackground value)? updateBackground,
@@ -2101,6 +2338,7 @@ class _$UndoMaskEditImpl implements UndoMaskEdit {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LoadImage value)? loadImage,
     TResult Function(PickImage value)? pickImage,
+    TResult Function(PickBackgroundImage value)? pickBackgroundImage,
     TResult Function(SegmentPerson value)? segmentPerson,
     TResult Function(UpdateSettings value)? updateSettings,
     TResult Function(UpdateBackground value)? updateBackground,
@@ -2168,6 +2406,7 @@ class _$RedoMaskEditImpl implements RedoMaskEdit {
   TResult when<TResult extends Object?>({
     required TResult Function(String imagePath) loadImage,
     required TResult Function(bool fromCamera) pickImage,
+    required TResult Function() pickBackgroundImage,
     required TResult Function() segmentPerson,
     required TResult Function(EditorSettings settings) updateSettings,
     required TResult Function(BackgroundStyle background) updateBackground,
@@ -2188,6 +2427,7 @@ class _$RedoMaskEditImpl implements RedoMaskEdit {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String imagePath)? loadImage,
     TResult? Function(bool fromCamera)? pickImage,
+    TResult? Function()? pickBackgroundImage,
     TResult? Function()? segmentPerson,
     TResult? Function(EditorSettings settings)? updateSettings,
     TResult? Function(BackgroundStyle background)? updateBackground,
@@ -2207,6 +2447,7 @@ class _$RedoMaskEditImpl implements RedoMaskEdit {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String imagePath)? loadImage,
     TResult Function(bool fromCamera)? pickImage,
+    TResult Function()? pickBackgroundImage,
     TResult Function()? segmentPerson,
     TResult Function(EditorSettings settings)? updateSettings,
     TResult Function(BackgroundStyle background)? updateBackground,
@@ -2230,6 +2471,7 @@ class _$RedoMaskEditImpl implements RedoMaskEdit {
   TResult map<TResult extends Object?>({
     required TResult Function(LoadImage value) loadImage,
     required TResult Function(PickImage value) pickImage,
+    required TResult Function(PickBackgroundImage value) pickBackgroundImage,
     required TResult Function(SegmentPerson value) segmentPerson,
     required TResult Function(UpdateSettings value) updateSettings,
     required TResult Function(UpdateBackground value) updateBackground,
@@ -2248,6 +2490,7 @@ class _$RedoMaskEditImpl implements RedoMaskEdit {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LoadImage value)? loadImage,
     TResult? Function(PickImage value)? pickImage,
+    TResult? Function(PickBackgroundImage value)? pickBackgroundImage,
     TResult? Function(SegmentPerson value)? segmentPerson,
     TResult? Function(UpdateSettings value)? updateSettings,
     TResult? Function(UpdateBackground value)? updateBackground,
@@ -2266,6 +2509,7 @@ class _$RedoMaskEditImpl implements RedoMaskEdit {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LoadImage value)? loadImage,
     TResult Function(PickImage value)? pickImage,
+    TResult Function(PickBackgroundImage value)? pickBackgroundImage,
     TResult Function(SegmentPerson value)? segmentPerson,
     TResult Function(UpdateSettings value)? updateSettings,
     TResult Function(UpdateBackground value)? updateBackground,

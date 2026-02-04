@@ -44,7 +44,7 @@ class TestData {
         width: 100,
         height: 100,
         alphaMap: Uint8List.fromList(
-          List<int>.filled(10000, 128),
+          List<int>.filled(10000, 255),
         ),
       );
 

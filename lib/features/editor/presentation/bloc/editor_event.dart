@@ -14,6 +14,9 @@ class EditorEvent with _$EditorEvent {
   const factory EditorEvent.pickImage({@Default(false) bool fromCamera}) =
       PickImage;
 
+  /// Pick background image
+  const factory EditorEvent.pickBackgroundImage() = PickBackgroundImage;
+
   /// Segment person from background
   const factory EditorEvent.segmentPerson() = SegmentPerson;
 

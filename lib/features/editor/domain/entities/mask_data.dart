@@ -26,7 +26,7 @@ class MaskEdits with _$MaskEdits {
         width: width,
         height: height,
         alphaMap: Uint8List.fromList(
-          List<int>.filled(width * height, 128),
+          List<int>.filled(width * height, 255),
         ),
       );
 }

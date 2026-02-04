@@ -1172,6 +1172,9 @@ abstract class ImageBackground implements BackgroundStyle {
 
 /// @nodoc
 mixin _$CutoutSettings {
+  double get scale => throw _privateConstructorUsedError;
+  double get offsetX => throw _privateConstructorUsedError;
+  double get offsetY => throw _privateConstructorUsedError;
   double get edgeSmooth => throw _privateConstructorUsedError;
   double get edgeFeather => throw _privateConstructorUsedError;
   bool get decontaminate => throw _privateConstructorUsedError;
@@ -1190,7 +1193,14 @@ abstract class $CutoutSettingsCopyWith<$Res> {
     $Res Function(CutoutSettings) then,
   ) = _$CutoutSettingsCopyWithImpl<$Res, CutoutSettings>;
   @useResult
-  $Res call({double edgeSmooth, double edgeFeather, bool decontaminate});
+  $Res call({
+    double scale,
+    double offsetX,
+    double offsetY,
+    double edgeSmooth,
+    double edgeFeather,
+    bool decontaminate,
+  });
 }
 
 /// @nodoc
@@ -1208,12 +1218,27 @@ class _$CutoutSettingsCopyWithImpl<$Res, $Val extends CutoutSettings>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? scale = null,
+    Object? offsetX = null,
+    Object? offsetY = null,
     Object? edgeSmooth = null,
     Object? edgeFeather = null,
     Object? decontaminate = null,
   }) {
     return _then(
       _value.copyWith(
+            scale: null == scale
+                ? _value.scale
+                : scale // ignore: cast_nullable_to_non_nullable
+                      as double,
+            offsetX: null == offsetX
+                ? _value.offsetX
+                : offsetX // ignore: cast_nullable_to_non_nullable
+                      as double,
+            offsetY: null == offsetY
+                ? _value.offsetY
+                : offsetY // ignore: cast_nullable_to_non_nullable
+                      as double,
             edgeSmooth: null == edgeSmooth
                 ? _value.edgeSmooth
                 : edgeSmooth // ignore: cast_nullable_to_non_nullable
@@ -1241,7 +1266,14 @@ abstract class _$$CutoutSettingsImplCopyWith<$Res>
   ) = __$$CutoutSettingsImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({double edgeSmooth, double edgeFeather, bool decontaminate});
+  $Res call({
+    double scale,
+    double offsetX,
+    double offsetY,
+    double edgeSmooth,
+    double edgeFeather,
+    bool decontaminate,
+  });
 }
 
 /// @nodoc
@@ -1258,12 +1290,27 @@ class __$$CutoutSettingsImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? scale = null,
+    Object? offsetX = null,
+    Object? offsetY = null,
     Object? edgeSmooth = null,
     Object? edgeFeather = null,
     Object? decontaminate = null,
   }) {
     return _then(
       _$CutoutSettingsImpl(
+        scale: null == scale
+            ? _value.scale
+            : scale // ignore: cast_nullable_to_non_nullable
+                  as double,
+        offsetX: null == offsetX
+            ? _value.offsetX
+            : offsetX // ignore: cast_nullable_to_non_nullable
+                  as double,
+        offsetY: null == offsetY
+            ? _value.offsetY
+            : offsetY // ignore: cast_nullable_to_non_nullable
+                  as double,
         edgeSmooth: null == edgeSmooth
             ? _value.edgeSmooth
             : edgeSmooth // ignore: cast_nullable_to_non_nullable
@@ -1285,11 +1332,23 @@ class __$$CutoutSettingsImplCopyWithImpl<$Res>
 
 class _$CutoutSettingsImpl implements _CutoutSettings {
   const _$CutoutSettingsImpl({
+    this.scale = 1.0,
+    this.offsetX = 0.0,
+    this.offsetY = 0.0,
     this.edgeSmooth = 50.0,
     this.edgeFeather = 10.0,
     this.decontaminate = false,
   });
 
+  @override
+  @JsonKey()
+  final double scale;
+  @override
+  @JsonKey()
+  final double offsetX;
+  @override
+  @JsonKey()
+  final double offsetY;
   @override
   @JsonKey()
   final double edgeSmooth;
@@ -1302,7 +1361,7 @@ class _$CutoutSettingsImpl implements _CutoutSettings {
 
   @override
   String toString() {
-    return 'CutoutSettings(edgeSmooth: $edgeSmooth, edgeFeather: $edgeFeather, decontaminate: $decontaminate)';
+    return 'CutoutSettings(scale: $scale, offsetX: $offsetX, offsetY: $offsetY, edgeSmooth: $edgeSmooth, edgeFeather: $edgeFeather, decontaminate: $decontaminate)';
   }
 
   @override
@@ -1310,6 +1369,9 @@ class _$CutoutSettingsImpl implements _CutoutSettings {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CutoutSettingsImpl &&
+            (identical(other.scale, scale) || other.scale == scale) &&
+            (identical(other.offsetX, offsetX) || other.offsetX == offsetX) &&
+            (identical(other.offsetY, offsetY) || other.offsetY == offsetY) &&
             (identical(other.edgeSmooth, edgeSmooth) ||
                 other.edgeSmooth == edgeSmooth) &&
             (identical(other.edgeFeather, edgeFeather) ||
@@ -1319,8 +1381,15 @@ class _$CutoutSettingsImpl implements _CutoutSettings {
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, edgeSmooth, edgeFeather, decontaminate);
+  int get hashCode => Object.hash(
+    runtimeType,
+    scale,
+    offsetX,
+    offsetY,
+    edgeSmooth,
+    edgeFeather,
+    decontaminate,
+  );
 
   /// Create a copy of CutoutSettings
   /// with the given fields replaced by the non-null parameter values.
@@ -1336,11 +1405,20 @@ class _$CutoutSettingsImpl implements _CutoutSettings {
 
 abstract class _CutoutSettings implements CutoutSettings {
   const factory _CutoutSettings({
+    final double scale,
+    final double offsetX,
+    final double offsetY,
     final double edgeSmooth,
     final double edgeFeather,
     final bool decontaminate,
   }) = _$CutoutSettingsImpl;
 
+  @override
+  double get scale;
+  @override
+  double get offsetX;
+  @override
+  double get offsetY;
   @override
   double get edgeSmooth;
   @override

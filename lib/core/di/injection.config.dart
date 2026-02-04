@@ -36,6 +36,8 @@ import '../../features/export/data/repositories/storage_repository_impl.dart'
     as _i164;
 import '../../features/export/domain/repositories/storage_repository.dart'
     as _i1050;
+import '../../features/export/presentation/bloc/export_history_cubit.dart'
+    as _i992;
 
 extension GetItInjectableX on _i174.GetIt {
   // initializes the registration of main-scope dependencies inside of GetIt
@@ -83,6 +85,9 @@ extension GetItInjectableX on _i174.GetIt {
         generatePreviewUseCase: gh<_i91.GeneratePreviewUseCase>(),
         exportImageUseCase: gh<_i527.ExportImageUseCase>(),
       ),
+    );
+    gh.factory<_i992.ExportHistoryCubit>(
+      () => _i992.ExportHistoryCubit(gh<_i1050.StorageRepository>()),
     );
     return this;
   }

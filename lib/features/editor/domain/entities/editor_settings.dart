@@ -77,6 +77,9 @@ enum FrameShape {
 @freezed
 class CutoutSettings with _$CutoutSettings {
   const factory CutoutSettings({
+    @Default(1.0) double scale,
+    @Default(0.0) double offsetX,
+    @Default(0.0) double offsetY,
     @Default(50.0) double edgeSmooth,
     @Default(10.0) double edgeFeather,
     @Default(false) bool decontaminate,
